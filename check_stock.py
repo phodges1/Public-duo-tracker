@@ -23,6 +23,8 @@ BUY_URL = "https://www.apple.com/shop/buy-iphone/iphone-duo"
 
 
 def notify(title, message, priority="high", tags="iphone"):
+    title = title.encode("ascii", "ignore").decode().strip()
+ 
     if not NTFY_TOPIC:
         print("NTFY_TOPIC not set; would have sent:", title, message)
         return
